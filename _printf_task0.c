@@ -24,23 +24,27 @@ int _printf(const char *format, ...)
 		} else /*if *format == '%'*/
 		{
 			format++;/*go to the next character*/
-			while (*format)
+			if (*format == '\0')
+				break;
+			if (*format == 'c')
 			{
-				if (*format == 'c')
-				{
-					c = va_arg(in_args, int);
-					write(1, &c, 1);
-					char_count++;
-				} else if (*format == '%')
-				{
-					write(1, format, 1);
-					char_count++;
-				} else if (*format == 's')
-				{
-					str = va_arg(in_args, char *);
-					write(1, str, _strlen(str));
-					char_count += _strlen(str);
-				} format++;
+				c = va_arg(in_args, int);
+				write(1, &c, 1);
+				char_count++;
+			} else if (*format == '%')
+			{
+				write(1, format, 1);
+				char_count++;
+			} else if (*format == 's')
+			{
+				str = va_arg(in_args, char *);
+				write(1, str, _strlen(str));
+				char_count += _strlen(str);
+			}
+			else
+			{
+				write(1, format, 1);
+				char_count++;
 			}
 		} format++;
 	}
