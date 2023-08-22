@@ -23,8 +23,8 @@ int _printf(const char *format, ...)
 		} else /*if *format == '%'*/
 		{
 			format++;/*go to the next character*/
-			/*if (*format == '\0')
-				break;*/
+			if (*format == '\0')
+				break;
 			if (*format == 'c')
 			{
 				c = va_arg(in_args, int);
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			{
 				str = va_arg(in_args, char *);
 				if (!str)
-					write(1, "(null)", 6);
+					return (-1);
 				write(1, str, _strlen(str));
 				char_count += _strlen(str);
 			}
