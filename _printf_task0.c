@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int char_count = 0;/*used to count the number of characters*/
+	unsigned int i, char_count = 0;/*used to count the number of characters*/
 	char c;
 	char *str;
 	va_list in_args;/*initialize the incoming string arguments*/
@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_start(in_args, format);
 	if (format == NULL)
 		return (-1);
-	while (*format)
+	while (format && format [i])
 	{
 		if (*format != '%')
 		{
