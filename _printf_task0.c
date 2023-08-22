@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	va_list in_args;/*initialize the incoming string arguments*/
 
 	va_start(in_args, format);
-
 	if (format == NULL)
 		return (-1);
 	while (*format)
@@ -40,14 +39,11 @@ int _printf(const char *format, ...)
 				str = va_arg(in_args, char *);
 				write(1, str, _strlen(str));
 				char_count += _strlen(str);
-			}
-			else
+			} else
 			{
 				write(1, format, 1);
 				char_count++;
 			}
 		} format++;
-	}
-	va_end(in_args);
-	return (char_count);
+	} va_end(in_args), return (char_count);
 }
