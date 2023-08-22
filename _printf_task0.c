@@ -39,10 +39,7 @@ int _printf(const char *format, ...)
 				str = va_arg(in_args, char *);
 				write(1, str, _strlen(str));
 				char_count += _strlen(str);
-			} /*else
-			{
-				write(1, f}*/
-		} format++;
+			} format++;
 	} va_end(in_args);
 	return (char_count);
 }
