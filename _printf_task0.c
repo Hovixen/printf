@@ -4,7 +4,6 @@
  * @format: format argument to be given.
  * Return: returns the lenght of string without null.
  */
-
 int _printf(const char *format, ...)
 {
 	int char_count = 0;/*used to count the number of characters*/
