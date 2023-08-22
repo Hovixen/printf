@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i, char_count = 0;/*used to count the number of characters*/
+	unsigned int i = 0, char_count = 0;/*used to count the number of characters*/
 	char c;
 	char *str;
 	va_list in_args;/*initialize the incoming string arguments*/
