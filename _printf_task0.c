@@ -28,6 +28,8 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				c = va_arg(in_args, int);
+				if (!c)
+					return (-1);
 				write(1, &c, 1);
 				char_count++;
 			} else if (*format == '%')
@@ -37,6 +39,8 @@ int _printf(const char *format, ...)
 			} else if (*format == 's')
 			{
 				str = va_arg(in_args, char *);
+				if (!str)
+					return (-1);
 				write(1, str, _strlen(str));
 				char_count += _strlen(str);
 			}
