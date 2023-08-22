@@ -41,9 +41,7 @@ int _printf(const char *format, ...)
 				char_count += _strlen(str);
 			} /*else
 			{
-				write(1, format, 1);
-				char_count++;
-			}*/
+				write(1, f}*/
 		} format++;
 	} va_end(in_args);
 	return (char_count);
