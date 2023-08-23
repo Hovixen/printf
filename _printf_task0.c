@@ -16,23 +16,23 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format [i])
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			write(1, format, 1);
+			write(1, &format[i], 1);
 			char_count++;
 		} else /*if *format == '%'*/
 		{
-			format++;/*go to the next character*/
-			if (*format == '\0')
+			/*format++;go to the next character*/
+			if (format[i + 1] == '\0')
 				break;
-			if (*format == 'c')
+			if (format[i + 1] == 'c')
 			{
 				c = va_arg(in_args, int);
 				write(1, &c, 1);
 				char_count++;
-			} else if (format[i] == '%' || format[i] == format [i])
+			} else if (format[i + 1] == '%' || format[i + 1] == format [i + 1])
 			{
-				write(1, &format[i], 1);
+				write(1, &format[i + 1], 1);
 				char_count++;
 			} else if (*format == 's')
 			{
